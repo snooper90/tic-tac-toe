@@ -1,7 +1,5 @@
-body{
-  position{
-
-  }
+*{
+  text-align: center;
 }
 header{
   text-align: center;
@@ -12,22 +10,12 @@ header{
   margin: 0 auto;
   height:25vw;
   width:25vw;
-  text-align: center;
 }
 tr.top td{
   border-bottom: 1px solid black;
 }
-tr.mid td{
-  border-bottom: 1px solid black;
-}
 tr.bot td{
   border-top: 1px solid black;
-}
-.figure_1{
-  text-align: center;
-}
-.figure_2{
-  text-align: center;
 }
 tr td:last-child{
 border-left: 1px solid black;
@@ -65,6 +53,3 @@ tr td:first-child{
 #close_option_btn i:hover{
   color:red;
 }
-/*#close_option_btn .btn_group{
-  width
-}*/
