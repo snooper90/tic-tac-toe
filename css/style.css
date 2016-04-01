@@ -1,7 +1,13 @@
 header{
+  text-align: center;
   background: steelblue;
   padding-top:0;
-
+}
+.board table{
+  margin: 0 auto;
+  height:25vw;
+  width:25vw;
+  text-align: center;
 }
 tr.top td{
   border-bottom: 1px solid black;
@@ -12,8 +18,12 @@ tr.mid td{
 tr.bot td{
   border-top: 1px solid black;
 }
-
-
+.figure_1{
+  text-align: center;
+}
+.figure_2{
+  text-align: center;
+}
 tr td:last-child{
 border-left: 1px solid black;
 }
