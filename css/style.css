@@ -1,6 +1,7 @@
-.red{
- background:red;
- border: 1px green solid;
+header{
+  background: steelblue;
+  padding-top:1px;
+
 }
 tr.top td{
   border-bottom: 1px solid black;
