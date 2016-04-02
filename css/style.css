@@ -53,3 +53,7 @@ tr td:first-child{
 #close_option_btn i:hover{
   color:red;
 }
+
+.hide{
+  display:none;
+}
