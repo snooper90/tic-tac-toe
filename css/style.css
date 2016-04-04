@@ -56,10 +56,13 @@ tr td:first-child{
 #open_option_btn i{
   font-size: 2.5em;
   float:left;
-  top:20px;
-  bottom:0;
+  padding-top: 10px;
 }
 #open_option_btn i:hover{
   color:red;
 }
 
+.option_group{
+  margin:40px 0;
+
+}
