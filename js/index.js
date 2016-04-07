@@ -34,9 +34,41 @@ $('tbody').click(function(e){
       //check for winner
     };
     console.log('click')
+    checkForWinner;
   }
 });
 
 function checkForWinner(){
+//collect bord data
+var arrBoard =$('td').text().split('');
+
+//check the rows
+checkWinRow(arrBoard);
+checkWinCol(arrBoard);
+//check diag win
 
 }
+
+function checkWinRow(arrBoard){
+  for(var i = 0; i <= arrBoard.length ; i += 3){
+    if(arrBoard[i] === arrBoard[i+1] && arrBoard[i+1] === arrBoard[i+2]){
+      alert('working across');
+      return true;
+
+    };
+  };
+  return false
+};
+function checkWinCol(arrBoard){
+  for(var i = 0; i < 3 ; i++ ){
+    if(arrBoard[0] === arrBoard[3] && arrBoard[3] === arrBoard[6]){
+      alert('working down')
+      return true
+
+    };
+  };
+  return false
+};
+
+
+// $('td').data('value') => 'x'
