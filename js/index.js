@@ -21,31 +21,32 @@ var playersTurn = true;
 // selecting each td and adding an even listener
 $('td').click(function(e){
   var $cell = $(e.currentTarget)
-
+  var $cellValue = $(e.currentTarget).data('value');
+  if($cellValue === undefined){
     if(playersTurn){
-      $(e.target).text('X');
-      playersTurn = !playersTurn;
-      //test using data attribute instead of inner HTML
-      console.log(e.attributes)     ;
-      $cell.data('value', "o")
-
-      //check for winner
+      $cell.text('X');
+      $cell.data('value', "x");
     }else{
-      $(e.target).text('O');
-      playersTurn = !playersTurn;
-      $cell.data('value', "x")
+      $cell.text('O');
+      $cell.data('value', "o")
     };
-    console.log('click')
+    playersTurn = !playersTurn;
     checkForWinner();
+  }
 });
 
 function checkForWinner(){
 //collect bord data
 var arrBoard =getBoardData();
 //check the rows
-checkWinRow(arrBoard);
-checkWinCol(arrBoard);
-//check diag win
+var row  =checkWinRow(arrBoard);
+var col  =checkWinCol(arrBoard);
+var diag =checkWinDiag(arrBoard);
+
+if(row || col || diag){
+  alert('you win');
+};
+
 
 }
 
@@ -53,7 +54,6 @@ function checkWinRow(arrBoard){
   for(var i = 0; i < arrBoard.length ; i += 3){
     if(arrBoard[i] === arrBoard[i + 1] && arrBoard[i + 1] === arrBoard[i + 2]){
       if(arrBoard[i] !==   undefined){
-        alert('working across');
         return true;
       };
     };
@@ -64,13 +64,26 @@ function checkWinCol(arrBoard){
   for(var i = 0; i < 3 ; i++ ){
     if(arrBoard[i] === arrBoard[i + 3] && arrBoard[i + 3] === arrBoard[i + 6]){
       if(arrBoard[i] !== undefined){
-        alert('working down')
         return true
       };
     };
   };
   return false
 };
+function checkWinDiag(arrBoard){
+  var arrBoard =getBoardData();
+  if(arrBoard[0] === arrBoard[4] && arrBoard[4] === arrBoard[8]){
+    if(arrBoard[0] !== undefined){
+      return true;
+    };
+  }
+  if(arrBoard[2] === arrBoard[4] && arrBoard[4]=== arrBoard[6]){
+    if(arrBoard[2] !== undefined){
+     return true;
+    }
+  }
+  return false;
+}
 
 function getBoardData(){
   var arrBoard = [];
@@ -80,4 +93,3 @@ function getBoardData(){
   return arrBoard;
 }
 
-// $('td#cell-0')[i].data('value') => 'x'
