@@ -28,7 +28,6 @@ border-left: 1px solid black;
 tr td:first-child{
   border-right: 1px solid black;
 }
-
 .option_overlay{
   width:100vw;
   height:100%;
@@ -70,3 +69,13 @@ tr td:first-child{
   margin:40px 0;
 
 }
+.winDisplayAll{
+  padding-top: 20px;
+}
+.winDisplayLeft{
+  float:left;
+}
+.winDisplayRight{
+  float:right;
+}
+
