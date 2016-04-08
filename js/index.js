@@ -27,6 +27,8 @@ $('tbody').click(function(e){
     if(playersTurn){
       $(e.target).text('X');
       playersTurn = !playersTurn;
+      //test using data attribute instead of inner HTML
+
       //check for winner
     }else{
       $(e.target).text('O');
@@ -34,7 +36,7 @@ $('tbody').click(function(e){
       //check for winner
     };
     console.log('click')
-    checkForWinner;
+    checkForWinner();
   }
 });
 
@@ -50,21 +52,19 @@ checkWinCol(arrBoard);
 }
 
 function checkWinRow(arrBoard){
-  for(var i = 0; i <= arrBoard.length ; i += 3){
-    if(arrBoard[i] === arrBoard[i+1] && arrBoard[i+1] === arrBoard[i+2]){
+  for(var i = 0; i < arrBoard.length ; i += 3){
+    if(arrBoard[i] === arrBoard[i + 1] && arrBoard[i + 1] === arrBoard[i + 2]){
       alert('working across');
       return true;
-
     };
   };
   return false
 };
 function checkWinCol(arrBoard){
-  for(var i = 0; i < 3 ; i++ ){
-    if(arrBoard[0] === arrBoard[3] && arrBoard[3] === arrBoard[6]){
+  for(var i = 0; i < 4 ; i++ ){
+    if(arrBoard[i] === arrBoard[i + 3] && arrBoard[i + 3] === arrBoard[i + 6]){
       alert('working down')
       return true
-
     };
   };
   return false

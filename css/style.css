@@ -12,6 +12,9 @@ header{
   height:25vw;
   width:25vw;
 }
+.board table td{
+  width: 33%;
+}
 tr.top td{
   border-bottom: 1px solid black;
 }
