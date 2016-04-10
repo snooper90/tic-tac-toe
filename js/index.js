@@ -34,13 +34,15 @@ $('td').click(function(e){
     players.playersTurn.current = !players.playersTurn.current;
     if(checkForDraw()){
       clearBoard();
+      onWin(winner);
     };
     if(checkForWinner()){
       var winner = checkForWinner();
       clearBoard();
       updateScore(winner);
+      onWin(winner);
     };
-  }
+  };
 });
 
 function checkForWinner(){
@@ -57,7 +59,7 @@ function checkForWinner(){
 };
 
 function checkWinRow(arrBoard){
-  for(var i = 0; i < arrBoard.length ; i += 3){
+  for(var i = 0; i < 7 ; i += 3){
     if(arrBoard[i] === arrBoard[i + 1] && arrBoard[i + 1] === arrBoard[i + 2]){
       if(arrBoard[i] !== null){
         return arrBoard[i];
@@ -77,7 +79,7 @@ function checkWinCol(arrBoard){
   return false
 };
 function checkWinDiag(arrBoard){
-  var arrBoard =getBoardData();
+  var arrBoard = getBoardData();
   if(arrBoard[0] === arrBoard[4] && arrBoard[4] === arrBoard[8]){
     if(arrBoard[0] !== null){
       return arrBoard[0];
@@ -104,6 +106,7 @@ function updateBoard($cell, player){
   $cell.data('value', player);
 };
 function updateScore(winner){
+  //update counters
   if(winner === "X"){
     players.player1.wins += 1;
   }else if(winner === "O"){
@@ -131,3 +134,44 @@ $().ready(function(){
   updateScore();
   clearBoard();
 });
+
+function onWin(winner){
+  var $winOverlay = $('#winOverlay');
+  var $winMessage = $('#showOnWin');
+//set the winning message to show the winner
+  if(winner === "X"){
+    $winMessage.text(players.player1.name + " wins!!! ");
+  }else if(winner === "O"){
+    $winMessage.text(players.player2.name + " wins!!! ");
+  }else{
+    $winMessage.text("Tie!");
+  }
+
+}
+function showWinner(){
+  //display winner
+  $winOverlay.show(400);
+  //hide display after 
+  $winOverlay.delay(1500).hide(1000);
+}
+$().ready(function(){
+  updateScore();
+  clearBoard();
+});
+
+
+//#TODO:20 option buttons
+
+//#TODO:30 change # of games
+
+//TODO:0 change player name
+
+//TODO:10 show something on win
+
+//TODOadd non filler content
+
+//add non filler content
+
+//starting player?
+
+//change winning condition?

@@ -78,4 +78,24 @@ tr td:first-child{
 .winDisplayRight{
   float:right;
 }
-
+#winOverlay {
+  width:100vw;
+  height:100%;
+  background-color: rgba( 0, 0, 0, .5);
+  z-index: 200 ;
+  position:fixed;
+  display:none
+}
+#showOnWin{
+  width: 100%;
+  margin:20vh 0;
+  padding: 1em;
+  height: 40vh;
+  background-color: #555;
+  z-index: 250;
+  position:absolute;
+  color:steelBlue;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size:5.3em;
+  font-weight:800;
+}
