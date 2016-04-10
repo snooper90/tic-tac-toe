@@ -32,10 +32,6 @@
     {
       "name": "working",
       "hidden": false
-    },
-    {
-      "name": "workingClean",
-      "hidden": false
     }
   ],
   "marked": {

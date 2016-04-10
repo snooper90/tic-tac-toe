@@ -1,54 +1,39 @@
-var grid = document.getElementById("board");
-var option_overlay = document.querySelector('.option_overlay');
-close_option_btn = document.getElementById('close_option_btn');
-open_option_btn = document.getElementById('open_option_btn');
-
-close_option_btn.addEventListener('click', function(){
-  option_overlay.classList.add('hide');
-});
-
-open_option_btn.addEventListener('click', function(){
-  option_overlay.classList.remove('hide');
-});
-
-// code above line just for temp option menue usage
-
-
-//research the best way to set a turn variable
-
-//var playersTurn = true;
-var players = {'player1':{'name': 'player1', 'symbol': 'X', 'wins': 0},
-               'player2':{'name': 'player2', 'symbol': 'O', 'wins': 0},
+var players = {'player1':{'name': 'player1', 'symbol': 'X', 'wins': 0, 'img': '<img src="images/moveOne.png" alt="X">'},
+               'player2':{'name': 'player2', 'symbol': 'O', 'wins': 0, 'img': '<img src="images/moveTwo.png" alt="X">'},
                'playersTurn':{'start': true, 'current': true }};
 
 // selecting each td and adding an even listener
-$('td').click(function(e){
-  var $cell = $(e.currentTarget)
-  var $cellValue = $(e.currentTarget).data('value');
-  if($cellValue === null){
-    if(players.playersTurn.current){
-      updateBoard($cell , players.player1.symbol);
-    }else{
-      updateBoard($cell , players.player2.symbol);
+$().ready(function(){
+  updateScore();
+  clearBoard();
+  $('td').click(function(e){
+    var $cell = $(e.currentTarget)
+    var $cellValue = $(e.currentTarget).data('value');
+    if($cellValue === null){
+      if(players.playersTurn.current){
+        updateBoard($cell , players.player1.symbol, players.player1.img);
+      }else{
+        updateBoard($cell , players.player2.symbol, players.player2.img);
+      };
+      players.playersTurn.current = !players.playersTurn.current;
+      if(checkForDraw()){
+        clearBoard();
+        onWin();
+      };
+      if(checkForWinner()){
+        var winner = checkForWinner();
+        clearBoard();
+        updateScore(winner);
+        onWin(winner);
+      };
     };
-    players.playersTurn.current = !players.playersTurn.current;
-    if(checkForDraw()){
-      clearBoard();
-      onWin(winner);
-    };
-    if(checkForWinner()){
-      var winner = checkForWinner();
-      clearBoard();
-      updateScore(winner);
-      onWin(winner);
-    };
-  };
+  });
 });
 
 function checkForWinner(){
   //collect bord data
   var arrBoard =getBoardData();
-
+  // return the winner if there is one
   if(checkWinRow(arrBoard)){
     return checkWinRow(arrBoard);
   }else if(checkWinCol(arrBoard)){
@@ -68,6 +53,7 @@ function checkWinRow(arrBoard){
   };
   return false
 };
+
 function checkWinCol(arrBoard){
   for(var i = 0; i < 3 ; i++ ){
     if(arrBoard[i] === arrBoard[i + 3] && arrBoard[i + 3] === arrBoard[i + 6]){
@@ -78,6 +64,7 @@ function checkWinCol(arrBoard){
   };
   return false
 };
+
 function checkWinDiag(arrBoard){
   var arrBoard = getBoardData();
   if(arrBoard[0] === arrBoard[4] && arrBoard[4] === arrBoard[8]){
@@ -101,10 +88,11 @@ function getBoardData(){
   return arrBoard;
 };
 
-function updateBoard($cell, player){
-  $cell.text(player);
+function updateBoard($cell, player, img){
+  $cell.html(img);
   $cell.data('value', player);
 };
+
 function updateScore(winner){
   //update counters
   if(winner === "X"){
@@ -115,12 +103,15 @@ function updateScore(winner){
   //update values
   $('#p1Wins').text(players.player1.wins);
   $('#p2Wins').text(players.player2.wins);
-}
+};
+
 function clearBoard(){
+  //replace all squares with null values and text
   $('td').data('value', null);
   $('td').text('');
   players.playersTurn.current = players.playersTurn.start;
 }
+
 function checkForDraw(){
   var arrBoard = getBoardData();
   // if not empty spaces return true
@@ -130,13 +121,7 @@ function checkForDraw(){
   return false;
 }
 
-$().ready(function(){
-  updateScore();
-  clearBoard();
-});
-
 function onWin(winner){
-  var $winOverlay = $('#winOverlay');
   var $winMessage = $('#showOnWin');
 //set the winning message to show the winner
   if(winner === "X"){
@@ -145,33 +130,20 @@ function onWin(winner){
     $winMessage.text(players.player2.name + " wins!!! ");
   }else{
     $winMessage.text("Tie!");
-  }
+  };
+  showWinner();
+};
 
-}
 function showWinner(){
+  var $winOverlay = $('#winOverlay');
   //display winner
-  $winOverlay.show(400);
-  //hide display after 
-  $winOverlay.delay(1500).hide(1000);
-}
-$().ready(function(){
-  updateScore();
-  clearBoard();
-});
-
-
-//#TODO:20 option buttons
-
-//#TODO:30 change # of games
+  $winOverlay.show(500);
+  //hide display after
+  $winOverlay.delay(1000).hide(1000);
+};
 
 //TODO:0 change player name
 
-//TODO:10 show something on win
+//#working:0 show something on win
 
-//TODOadd non filler content
-
-//add non filler content
-
-//starting player?
-
-//change winning condition?
+//#inProgress:0 add non filler content

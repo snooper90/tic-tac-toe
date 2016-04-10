@@ -9,96 +9,23 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class='option_overlay hide'><!-- option overlay -->
-    <div class="options">
-      <span id="close_option_btn">
-        <i class="fa fa-angle-double-left"></i>
-      </span>
-
-        <div class="wins_option option_group">
-          <p>Number of Players</p>
-          <div class="btn-group btn-group-justified " role="group" aria-label="...">
-
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">1</button>
-            </div>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">3</button>
-            </div>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">5</button>
-            </div>
-          </div>
-        </div><!-- end first btn group -->
-
-        <div class="type_option option_group">
-          <p>Type of game</p>
-          <div class="btn-group btn-group-justified" role="group" aria-label="...">
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">wins</button>
-            </div>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">loss</button>
-            </div>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">Random</button>
-            </div>
-          </div>
-        </div><!-- end second btn group -->
-
-        <div class="choose_player option_group">
-          <p>More Options here</p>
-          <div class="btn-group btn-group-justified" role="group" aria-label="...">
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">Left</button>
-            </div>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">Middle</button>
-            </div>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">Right</button>
-            </div>
-          </div>
-        </div><!-- end thrird btn group -->
-
-
-        </div>
-      </span>
-    </div>
-  </div> <!-- end option overlay -->
   <div id='winOverlay'>
     <div id="showOnWin">Player 1 won!!!</div>
   </div><!-- end win overlay -->
   <header>
-     <span id="open_option_btn">
-        <i class="fa fa-angle-double-right"></i>
-    </span>
   <!-- center this -->
     <div class="container">
-      <h1>Name of game </h1>
+      <h1>Stick-Tac-Toe</h1>
     </div>
   </header>
 
   <main class="container-fluid">
-  <!-- put options here on left side of screen-->
-  <!--//include # of games
-      //include changing the players figure?
-      //change game mode
-      //add more boards?
-      //make bar collapsable?-->
-  <!--                  -->
-  <div class="container">
-    <div class="row row-eq-height">
-
-
-
-        <div class="figure_1 col-sm-4">
-          <img src="#" alt="player 1">
-          <p> words are here and not there</p>
+    <div class="container">
+      <div class="row row-eq-height">
+        <div class="player-group figure_1 col-sm-4">
+          <img src="images/playerOne.png" alt="player 1">
+          <p>Player One</p>
         </div> <!-- end figure_1 -->
-
-
-
         <div class="board col-sm-4">
           <table id='board'>
             <tr class="top">
@@ -125,9 +52,9 @@
 
 
 
-        <div class="figure_2 col-sm-4">
-          <img src="#" alt="player 2">
-          <p>there are words there but not here</p>
+        <div class="player-group figure_2 col-sm-4">
+          <img src="images/playerTwo.png" class='fliped' alt="player 2">
+          <p>Player Two</p>
         </div><!-- end figure_2 -->
 
 
@@ -136,8 +63,8 @@
   </main>
   <footer class="container">
 <!-- maybe put a coppyright or extra instructions that might be needed -->
-    <h3>This is how you play. </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas dolorem tempora dignissimos consequatur impedit velit magni inventore, voluptate dicta, corporis enim quis. Dignissimos repellendus quae nihil quas iusto aut suscipit.</p>
+    <h3>Instructions</h3>
+    <p>The goal of the game is to get 3 of your figures in a row. If nether player is able to achive this the game will end in a draw.</p>
 <!--                             -->
 
   </footer>

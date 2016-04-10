@@ -1,16 +1,33 @@
 *{
   text-align: center;
 }
+.player-group{
+  margin-top:8vw;
+  font-size: 1.4em;
+}
+.player-group img{
+  max-height:200px;
+  max-width:100px;
+  min-height:100px;
+  min-width:50px;
+  height:14vw;
+  width:7vw;
+}
 header{
   position: relative;
   text-align: center;
   background: steelblue;
   padding-top:0;
 }
+.board img{
+  width:100%;
+}
 .board table{
   margin: 0 auto;
   height:25vw;
   width:25vw;
+  min-height:180px ;
+  min-width:180px;
 }
 .board table td{
   width: 33%;
@@ -27,47 +44,6 @@ border-left: 1px solid black;
 }
 tr td:first-child{
   border-right: 1px solid black;
-}
-.option_overlay{
-  width:100vw;
-  height:100%;
-  background-color: rgba( 0, 0, 0, .5);
-  z-index: 200 ;
-  position:fixed;
-}
-.options{
-  width:20vw;
-  height: 100%;
-  background-color: #555;
-  z-index: 200;
-  position:absolute;
-}
-.options i{
-  color:white;
-  position: absolute;
-  z-index: 201;
-}
-#close_option_btn i{
-  font-size: 2.5em;
-  position: absolute;
-  right:-20px;
-  top:10px;
-}
-#close_option_btn i:hover{
-  color:red;
-}
-#open_option_btn i{
-  font-size: 2.5em;
-  float:left;
-  padding-top: 10px;
-}
-#open_option_btn i:hover{
-  color:red;
-}
-
-.option_group{
-  margin:40px 0;
-
 }
 .winDisplayAll{
   padding-top: 20px;
@@ -98,4 +74,13 @@ tr td:first-child{
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-size:5.3em;
   font-weight:800;
+}
+.fliped{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+    -ms-filter: "FlipH";
+    filter: FlipH;
 }
