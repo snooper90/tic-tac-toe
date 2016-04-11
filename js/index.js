@@ -95,9 +95,9 @@ function updateBoard($cell, player, img){
 
 function updateScore(winner){
   //update counters
-  if(winner === "X"){
+  if(winner === players.player1.symbol){
     players.player1.wins += 1;
-  }else if(winner === "O"){
+  }else if(winner === players.player2.symbol){
     players.player2.wins += 1;
   }
   //update values
