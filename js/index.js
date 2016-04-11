@@ -40,7 +40,7 @@ $().ready(function(){
 
 function checkForWinner(){
   //collect bord data
-  var arrBoard =getBoardData();
+  var arrBoard = getBoardData();
   // return the winner if there is one
   if(checkWinRow(arrBoard)){
     return checkWinRow(arrBoard);
@@ -63,7 +63,7 @@ function checkWinRow(arrBoard){
 };
 //check each column
 function checkWinCol(arrBoard){
-  for(var i = 0; i < 3 ; i++ ){
+  for(var i = 0; i < 4 ; i++ ){
     if(arrBoard[i] === arrBoard[i + 3] && arrBoard[i + 3] === arrBoard[i + 6]){
       if(arrBoard[i] !== null){
         return arrBoard[i];
@@ -80,7 +80,7 @@ function checkWinDiag(arrBoard){
       return arrBoard[0];
     };
   };
-  if(arrBoard[2] === arrBoard[4] && arrBoard[4]=== arrBoard[6]){
+  if(arrBoard[2] === arrBoard[4] && arrBoard[4] === arrBoard[6]){
     if(arrBoard[2] !== null){
      return arrBoard[2];
     };
