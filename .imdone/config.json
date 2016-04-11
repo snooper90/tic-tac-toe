@@ -28,10 +28,6 @@
     {
       "name": "inProgress",
       "hidden": false
-    },
-    {
-      "name": "working",
-      "hidden": false
     }
   ],
   "marked": {
