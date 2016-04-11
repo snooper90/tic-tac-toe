@@ -7,7 +7,7 @@ $().ready(function(){
   updateScore();
   clearBoard();
   $('td').click(function(e){
-    var $cell = $(e.currentTarget)
+    var $cell = $(e.currentTarget);
     var $cellValue = $(e.currentTarget).data('value');
     if($cellValue === null){
       if(players.playersTurn.current){
@@ -40,7 +40,7 @@ function checkForWinner(){
     return checkWinCol(arrBoard);
   }else if(checkWinDiag(arrBoard)){
     return checkWinDiag(arrBoard);
-  }
+  };
 };
 
 function checkWinRow(arrBoard){
@@ -51,18 +51,18 @@ function checkWinRow(arrBoard){
       };
     };
   };
-  return false
+  return false;
 };
 
 function checkWinCol(arrBoard){
   for(var i = 0; i < 3 ; i++ ){
     if(arrBoard[i] === arrBoard[i + 3] && arrBoard[i + 3] === arrBoard[i + 6]){
       if(arrBoard[i] !== null){
-        return arrBoard[i]
+        return arrBoard[i];
       };
     };
   };
-  return false
+  return false;
 };
 
 function checkWinDiag(arrBoard){
@@ -141,9 +141,3 @@ function showWinner(){
   //hide display after
   $winOverlay.delay(1000).hide(1000);
 };
-
-//TODO:0 change player name
-
-//#working:0 show something on win
-
-//#inProgress:0 add non filler content
